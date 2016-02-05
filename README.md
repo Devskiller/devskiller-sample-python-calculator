@@ -11,7 +11,7 @@ Check out how the test looks from candidate's perspective: [Candidate campaign p
 
 This repo contains an example project for Python with setuptools, below you can find a detailed guide for creating your own programming project. 
 
-**Please make sure to read our [Getting started with programming projects](https://docs.devskiller.com/programming_task/index.html) guides first**
+**Please make sure to read our [Getting started with programming projects](https://docs.devskiller.com/programming_tasks/index.html) guides first**
 
 ## Technical details for Python with setuptools support
 
