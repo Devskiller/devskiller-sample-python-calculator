@@ -1,4 +1,4 @@
-# DevSKiller programming task sample - Python with setuptools
+# DevSKiller programming task sample - Python with pip
 
 ## Introduction
 
@@ -13,9 +13,9 @@ This repo contains an example project for Python with setuptools, below you can 
 
 **Please make sure to read our [Getting started with programming projects](https://docs.devskiller.com/programming_tasks/index.html) guides first**
 
-## Technical details for Python with setuptools support
+## Technical details for Python with pip support
 
-Any **setuptools** project might be used as a programming task. We support **nosetests** for running unit tests.
+Any **pip** project might be used as a programming task (for example setuptools). We support **nosetests** for running unit tests.
 
 Your project will be executed with following command:
 
