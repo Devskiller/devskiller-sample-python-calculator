@@ -20,7 +20,7 @@ Any **setuptools** project might be used as a programming task. We support **nos
 Your project will be executed with following command:
 
 ```sh
-python setup.py install && nosetests
+pip install -e . && nosetests
 ```
 
 ***Important:*** **Python 3** will be used to build the project.
