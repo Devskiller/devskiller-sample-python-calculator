@@ -1,20 +1,32 @@
-# Devskiller programming task sample - Python with pip
+# Devskiller programming task sample - Python
 
 ## Introduction
 
-With [Devskiller.com](https://devskiller.com) you can assess candidates' programming skills during your recruitment process. Programming tasks are the best way to test candidates programming skills. The candidate is asked to modify source code of an existing project.
+With [Devskiller.com](https://devskiller.com) you can assess your candidates'
+programming skills as a part of your recruitment process. We have found that
+programming tasks are the best way to do this and have built our tests
+accordingly. The way our test works is your candidate is asked to modify the
+source code of an existing project.
 
-During the test, the candidate is allowed to edit the source code of the project with our browser-based code editor and can build the project inside the browser at any time. Candidate can also download the project code and edit it locally with the favorite IDE.
+During the test, your candidates have the option of using our browser-based
+code editor and can build the project inside the browser at any time. If they
+would prefer to use an IDE they are more comfortable with, they can also
+download the project code or clone the project’s Git repository and work
+locally.
 
-Check out how the test looks from [candidate's perspective](https://help.devskiller.com/candidate-documentation/how-the-devskiller-test-looks-like-from-the-candidate-perspective).
+You can check out this short video to see the test from the [candidate's
+perspective](https://goo.gl/AXXaTT).
 
-This repo contains an example project for Python with setuptools, below you can find a detailed guide for creating your own programming project. 
+This repo contains a sample project for Python and below you can
+find a detailed guide for creating your own programming project.
 
-**Please make sure to read our [Getting started with programming projects](https://docs.devskiller.com/programming_tasks/index.html) guides first**
+**Please make sure to read our [Getting started with programming
+projects](https://goo.gl/gkQU4J) guide first**
 
-## Technical details for Python with pip support
+## Technical details
 
-Any **pip** project might be used as a programming task (for example setuptools). We support **nosetests** for running unit tests.
+Any project which uses **pip** and **setuptools** can be used as a
+programming task. We use **nosetests** to execute unit tests.
 
 Your project will be executed with following command:
 
@@ -22,24 +34,35 @@ Your project will be executed with following command:
 pip install -e . && nosetests
 ```
 
-***Important:*** **Python 3** will be used to build the project.
-
-**When you will be creating a ZIP package with project contents, please skip `build`, `dist` and all folders with build results.**
-
 ## Automatic assessment
 
-It is possible to automatically assess solution posted by the candidate. Automatic assessment is based on Unit Tests results and Code Quality measurements. 
+It is possible to automatically assess the solution posted by the candidate.
+Automatic assessment is based on unit tests results and code quality
+measurements.
 
 There are two kinds of unit tests:
 
-1. **Candidate tests** - unit tests that are visible for the candidate during the test. Should be used to do only the basic verification and help the candidate to understand the requirements. Candidate tests WILL NOT be used to calculate the final score.
-2. **Verification tests** - unit tests that are hidden from the candidate during the test. Files containing verification tests will be added to the project after the candidate finishes the test and will be executed during verification phase. Verification tests result will be used to calculate the final score.
+1. **Candidate tests** - unit tests that the candidate can see during the test
+   should be used only for basic verification and to guide the candidate in
+   understanding the requirements of the project. Candidate tests WILL NOT be used
+   to calculate the final score.
+2. **Verification tests** - unit tests that the candidate can’t see during the
+   test. Files containing verification tests will be added to the project after
+   the candidate finishes the test and will be executed during the verification
+   phase. The results of the verification tests will be used to calculate the
+   final score.
 
-After candidate finishes the test, our platform builds the project posted by the candidate and executes verification tests and static code analysis.
+Once the solution is developed and submitted, the platform executes
+verification tests and performs static code analysis.
 
 ## Devskiller project descriptor
 
-Programming task can be configured with the Devskiller project descriptor file. Just create a `devskiller.json` file and place it in the root directory of your project. Here is an example project descriptor:
+Programming tasks can be configured with the Devskiller project descriptor file:
+
+1. Create a `devskiller.json` file.
+2. Place it in the root directory of your project.
+
+Here is an example project descriptor:
 
 ```json
 {
@@ -50,26 +73,33 @@ Programming task can be configured with the Devskiller project descriptor file. 
 }
 ```
 
-You can find more details about `devskiller.json` descriptor in our [documentation](https://docs.devskiller.com/programming_tasks/project_descriptor.html).
+You can find more details about the `devskiller.json` descriptor in our
+[documentation](https://goo.gl/uWXeCD).
 
 ## Automatic verification with verification tests
 
-To enable automatic verification of candidates' solution, you need to define which tests should be treated as verification tests.
+The solution submitted by the candidate may be verified using automated tests.
+You’ll just have to define which tests should be treated as verification tests.
 
-All files classified as verification tests will be removed from a project prepared for the candidate.
+All files classified as verification tests will be removed from the project
+prior to inviting the candidate.
 
-To define verification tests, you need to set two configuration properties in `devskiller.json` project descriptor:
+To define verification tests, you need to set two configuration properties in
+`devskiller.json`:
 
-- `testNamePatterns` - an array of RegEx patterns which should match all the test names of verification tests. 
-Test name contains: `[package_name].[module_name].[class_name]`. In our sample project all verification tests are in `verify_pack` package, so the following pattern will be sufficient:
+- `testNamePatterns` - an array of RegEx patterns which should match all the
+  names of the verification tests.
+- `pathPatterns` - an array of GLOB patterns which should match all the files
+  containing verification tests. All the files that match defined patterns will
+  be deleted from candidates' projects and will be added to the projects during
+  the verification phase. These files will not be visible to the candidate during
+  the test.
+
+In our sample project all verification tests are in the `VerifyCalculatorTest`
+class and the class is located in file which names contains `verify_pack`. In
+this case the following patterns will be sufficient:
 
 ```json
-"testNamePatterns" : [".*verify_pack.*"]
+"testNamePatterns" : [ ".*verify_pack.*" ],
+"pathPatterns" : [ "**verify_pack**" ]
 ```
-
-- `pathPatterns` - an array of GLOB patterns which should match all the files containing verification tests. All the files that match defined patterns will be deleted from candidates' projects and will be added to the projects during the verification phase. These files will not be visible for candidate during the test.
-
-```json
-"pathPatterns" : ["**verify_pack**"]
-```
-
