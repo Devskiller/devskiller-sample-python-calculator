@@ -1,4 +1,9 @@
+import sys
+
 from setuptools import find_packages, setup
+
+if "--with-xunit" in sys.argv:
+    sys.argv.remove("--with-xunit")
 
 setup(
     name="sample-python-calculator",
@@ -7,7 +12,12 @@ setup(
     author_email="support@devskiller.com",
     packages=find_packages(),
     test_suite="test",
+    setup_requires=[
+        "pytest-runner",
+    ],
     tests_require=[
-        "nose",
+        "pytest",
+        "pytest-cov",
+        "pytest-timeout",
     ],
 )

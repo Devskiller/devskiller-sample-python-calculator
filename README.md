@@ -26,13 +26,15 @@ projects](https://goo.gl/gkQU4J) guide first**
 ## Technical details
 
 Any project which uses **pip** and **setuptools** can be used as a
-programming task. We use **nosetests** to execute unit tests.
+programming task. We use **pytest** to execute unit tests.
 
 Your project will be executed with following command:
 
 ```sh
-pip install -e . && nosetests
+python3 setup.py test
 ```
+
+Check out our [setup.py](setup.py) and [setup.cfg](setup.cfg)
 
 ## Automatic assessment
 
