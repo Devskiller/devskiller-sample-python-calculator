@@ -34,7 +34,7 @@ Your project will be executed with following command:
 python3 setup.py test
 ```
 
-Check out our [setup.py](setup.py) and [setup.cfg](setup.cfg)
+Check out our [setup.py](setup.py) and [setup.cfg](setup.cfg) files.
 
 ## Automatic assessment
 
