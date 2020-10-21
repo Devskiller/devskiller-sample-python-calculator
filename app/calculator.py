@@ -1,6 +1,4 @@
-
-class Calculator(object):
-
+class Calculator:
     def add(self, x, y):
         pass
 

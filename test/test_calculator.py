@@ -4,7 +4,6 @@ from app.calculator import Calculator
 
 
 class BasicCalculatorTest(unittest.TestCase):
-
     def test_add(self):
         calc = Calculator()
         result = calc.add(2, 2)
