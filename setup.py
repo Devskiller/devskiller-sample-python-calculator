@@ -1,9 +1,4 @@
-import sys
-
 from setuptools import find_packages, setup
-
-if "--with-xunit" in sys.argv:
-    sys.argv.remove("--with-xunit")
 
 setup(
     name="sample-python-calculator",

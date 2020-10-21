@@ -31,7 +31,7 @@ programming task. We use **pytest** to execute unit tests.
 Your project will be executed with following command:
 
 ```sh
-python3 setup.py test
+pip install -e . && python3 setup.py pytest
 ```
 
 Check out our [setup.py](setup.py) and [setup.cfg](setup.cfg) files.
