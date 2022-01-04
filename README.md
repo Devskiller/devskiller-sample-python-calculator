@@ -21,7 +21,7 @@ This repo contains a sample project for Python and below you can
 find a detailed guide for creating your own programming project.
 
 **Please make sure to read our [Getting started with programming
-projects](https://devskiller.zendesk.com/hc/en-us/articles/360019530419-Programming-task-project-descriptor) guide first**
+projects](https://devskiller.zendesk.com/hc/en-us/articles/360019531059-Getting-started-with-Programming-Tasks) guide first**
 
 ## Technical details
 
