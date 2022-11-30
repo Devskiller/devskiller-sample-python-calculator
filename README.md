@@ -34,6 +34,13 @@ Your project will be executed with following command:
 pip install -e . && python3 setup.py pytest
 ```
 
+When configuring your setup.cfg ensure that the junit `tests.xml` report generation is enabled.
+These two options should be present:
+```ini
+addopts=--junitxml=tests.xml
+junit_family=legacy
+```
+
 Check out our [setup.py](setup.py) and [setup.cfg](setup.cfg) files.
 
 ## Automatic assessment
